@@ -18,9 +18,9 @@ console.log('Starting ' + siteName + ' Batch Downloader script...');
 
 var startEpisode;
 do {
-	startEpisode = Number(prompt("Enter episode (listing) number you want to start from", defaultText="1"));
+	startEpisode = Number(prompt("Enter episode (listing) number you want to start at (between 1-" + episodeLinks.length + " inclusive)", defaultText="1"));
 	if(startEpisode <= 0 || startEpisode > episodeLinks.length) {
-		alert("Episode number entered must be greater than 0 and lesser than total number of eps"); 
+		alert("You must select a starting episode between 1 and " + episodeLinks.length + " (inclusive)."); 
 	} else {
 		break; 
 	}
@@ -28,9 +28,9 @@ do {
 
 var endEpisode;
 do {
-	endEpisode = Number(prompt("Enter episode (listing) number you want to end at", defaultText="2"));
+	endEpisode = Number(prompt("Enter episode (listing) number you want to end at (between " + startEpisode + "-" + episodeLinks.length + " inclusive)", defaultText=episodeLinks.length));
 	if(endEpisode <= 0 || endEpisode > episodeLinks.length || endEpisode < startEpisode) {
-		alert("Episode number entered must be greater than 0 and lesser than total number of eps");
+		alert("You must select an ending episode between " + startEpisode + " and " + episodeLinks.length + "(inclusive).");
 	} else {
 		break;
 	}
